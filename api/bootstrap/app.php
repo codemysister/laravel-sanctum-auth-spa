@@ -12,6 +12,8 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->statefulApi();
+        $middleware->redirectGuestsTo(env('SPA_URL') . "/login");
+
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
